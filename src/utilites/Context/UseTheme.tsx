@@ -1,11 +1,7 @@
+import { useContext } from "react"
+import { ThemeContext } from "./ThemeContext"
 
 
-const UseTheme = () => {
-  return (
-    <>
-        <h1>Use Theme</h1>
-    </>
-  );
+export const useTheme = () =>{
+  return useContext(ThemeContext);
 }
-
-export default UseTheme;
