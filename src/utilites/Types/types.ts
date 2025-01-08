@@ -27,3 +27,16 @@ export interface ToDoContextProps {
     // Function to change filter option
     handleFilter: (item: FilterToDo) => void;  
   }
+
+  // Types setFilter
+  export interface FilterProps{
+    setFilter: (filter: FilterToDo) => void;
+  }
+
+  // Types Todo
+  export interface TodoProps {
+    todoText: string;
+    completed: boolean;
+    index: number;
+    id: string;
+  }
