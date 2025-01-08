@@ -1,5 +1,5 @@
 import Header from "./components/Header/Header";
-import { ThemeContextProvider } from "./utilites/Context/ThemeContextProvider";
+import { ThemeContextProvider } from "./utilites/ContextTheme/ThemeContextProvider";
 
 const App = () => {
   return (
