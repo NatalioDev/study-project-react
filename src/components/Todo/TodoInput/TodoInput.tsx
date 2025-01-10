@@ -33,13 +33,13 @@ const TodoInput = () => {
 
   return (
     <>
-      <div className="">
+      <div className="w-full mb-4">
         <form onClick={handleSubmit}>
-          <div className="">
-            <button className="">Add</button>
+          <div className="flex pl-4 items-center rounded-md shadow-[10px_10px_80px_rgba(0,0,0,0.4)] bg-slate-50">
+            <button className="bg-transparent rounded-[50%] cursor-pointer text-[0] h-6 w-6 border-[1px_solid_rgba(119,122,146)]">Add</button>
             <input 
               type="text" 
-              className="" 
+              className="text-slate-300 bg-transparent border-none outline-none pt-6 pb-5 px-5 w-full" 
               placeholder="Create a new ToDo"
               value={text}
               onChange={handleChange}

@@ -25,7 +25,7 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
       >
         {(provided: DraggableProvided) => (
           <div 
-            className=""
+            className={`flex items-center cursor-grab justify-between min-h-12 break-words pt-4 pr-6 pl-4 pb-4 relative w-full break-all `} 
             ref={provided.innerRef}
             {...provided.dragHandleProps}
             {...provided.draggableProps}
@@ -36,9 +36,11 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
               onClick={handleClick}
             ></div>
 
-            <p className="">{todoText}</p>
+            <p className={`break-words pr-[.5rem] break-all ${completed ? "text-slate-400 line-through" : ""}`}>{todoText}</p>
 
-            <img src="icon/icon-cross.svg" alt="cross" onClick={handleDeleted}/>
+            <img 
+              className="cursor-pointer"
+              src="icon/icon-cross.svg" alt="cross" onClick={handleDeleted}/>
           </div>
         )}
       </Draggable>
