@@ -1,25 +1,25 @@
 import Header from "./components/Header/Header";
-import { ThemeContextProvider } from "./utilites/ContextTheme/ThemeContextProvider";
+import TodoContainer from "./components/Todo/TodoContainer/TodoContainer";
+import TodoInput from "./components/Todo/TodoInput/TodoInput";
 import { TodoProvider } from "./utilites/ContextTodo/TodoProvider";
 
 const App = () => {
 
   return (
-    <ThemeContextProvider>
-      {/* Aplicar colores personalizados */}
-      <div className="min-h-screen transition-colors duration-300 bg-customLight text-lightText dark:bg-customDark dark:text-darkText">
+      <main className="flex flex-col items-center m-0 p-0 min-h-screen transition-colors duration-300 bg-customLight text-lightText dark:bg-customDark dark:text-darkText">
         <Header />
-        <main className="p-4">
+        <div 
+          className="
+            mt-5 w-[90%] rounded-md
+            md:w-[550px]
+        ">
           <TodoProvider>
-            <h2 className="text-xl font-bold dark:text-yellow-400">Mi aplicación con tema dinámico</h2>
-            <p className="dark:text-gray-200">
-              ¡Cambia entre el modo claro y oscuro!
-            </p>
+            <TodoInput/>
+            <TodoContainer/>
           </TodoProvider>
           
-        </main>
-      </div>
-    </ThemeContextProvider>
+        </div>
+      </main>
   );
 };
 
