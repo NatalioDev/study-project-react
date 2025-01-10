@@ -31,12 +31,25 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
             {...provided.draggableProps}
             data-index={index}
           >
-            <div 
-              className={`circle${completed ? " circle-gradient" : ""}`}
+            <div
+              className={`bg-transparent border border-[#cacde8] rounded-full cursor-pointer h-7 w-7 left-6 top-1/2 transform -translate-y-1/2 absolute ${completed ? "bg-gradient-to-r from-[#57ddff] to-[#c058f3]" : ""} z-10`}
               onClick={handleClick}
-            ></div>
-
-            <p className={`break-words pr-[.5rem] break-all ${completed ? "text-slate-400 line-through" : ""}`}>{todoText}</p>
+            >
+              {completed && (
+                <div
+                  className="absolute inset-[6px] flex justify-center items-center"
+                  style={{
+                    backgroundImage: "url('/icon/icon-check.svg')",
+                    backgroundPosition: '50%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    height: '.99rem',
+                    width: '.99rem',
+                  }}
+                ></div>
+              )}
+            </div>
+            <p className={`break-words pl-11 uppercase break-all font-bold ${completed ? "text-blue-500 line-through ease-linear text-sm text-opacity-55" : ""}`}>{todoText}</p>
 
             <img 
               className="cursor-pointer"
