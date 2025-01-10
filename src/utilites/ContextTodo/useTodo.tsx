@@ -34,18 +34,13 @@ const getTodoList = () : TodoType[] => {
     };
 
     // Function to mark a completed item by its id
-    const setCompleted = (id: string) =>{
-        setTodos((prevTodos) =>
-            // Search for the item by its id and change it to completed 
-            prevTodos.map((todo) => {
-                if(todo.id === id) {
-                    todo.completed = !todo.completed;
-                }
-                // Return new array
-                return todo;
-            })
+    const setCompleted = (id: string) => {
+        setTodos(prevTodos => 
+          prevTodos.map(todo => 
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          )
         );
-    };
+      };
 
     // Remove completed items by their id
     const clearCompleted = () => {
