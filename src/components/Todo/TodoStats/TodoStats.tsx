@@ -20,8 +20,9 @@ const TodoStats = () => {
   return (
     <div className="flex flex-wrap items-center rounded-b-[0.25rem] rounded-tl-[0rem] rounded-tr-[0rem] justify-between min-w-10 p-4 relative w-full font-semibold">
       <div className="">
-        {countRemainingTodos(todos)} 
-        items left
+        {countRemainingTodos(todos)}
+        {' '}
+        Tasks
       </div>
       
       <Filter setFilter={handleFilter}/>

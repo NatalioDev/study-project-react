@@ -35,11 +35,11 @@ const TodoInput = () => {
     <>
       <div className="w-full mb-4">
         <form onClick={handleSubmit}>
-          <div className="flex pl-4 items-center rounded-md shadow-[10px_10px_80px_rgba(0,0,0,0.4)] bg-slate-50">
-            <button className="bg-transparent rounded-[50%] cursor-pointer text-[0] h-6 w-6 border-[1px_solid_rgba(119,122,146)]">Add</button>
+          <div className="flex pl-4 items-center rounded-md shadow-[10px_10px_80px_rgba(0,50,60,0.3)] dark:shadow-[10px_10px_80px_rgba(255,255,255,0.14)] bg-slate-50 dark:bg-cyan-950">
+            <button className="bg-transparent  cursor-pointer text-[0] h-0 w-0 ">Add</button>
             <input 
               type="text" 
-              className="text-slate-300 bg-transparent border-none outline-none pt-6 pb-5 px-5 w-full" 
+              className="text-slate-500 font-semibold dark:text-slate-50 bg-transparent border-none outline-none pt-6 pb-5 px-5 w-full" 
               placeholder="Create a new ToDo"
               value={text}
               onChange={handleChange}

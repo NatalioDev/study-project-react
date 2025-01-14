@@ -45,9 +45,9 @@ const TodoContainer = () => {
   };
 
   if(todos.length === 0){
-    return <h2 className="text-center w-full mt-40 relative">
+    return <h2 className="text-center w-full mt-10 relative font-semibold text-lg text-amber-600 dark:text-sky-600">
       No ToDos Yet! <br />
-      Add a new task to get started.
+      Add a New Task to get Started.
     </h2>
   }
 
@@ -76,11 +76,8 @@ const TodoContainer = () => {
           )}
         </Droppable>
         ):(
-          <div className="flex items-center cursor-none justify-center min-h-12 break-words p-4 w-full relative break-all text-xs text-slate-300 border-b-[2px_solid_rgb(57,58,76)] bg-slate-950">
-            <h2 className="relative">{noTodosMessage}</h2>
-            <span className="absolute left-[5.3rem] top-[120%] text-sm font-light sm:left-[11rem]">
-              Your todos will appear here!
-            </span>
+          <div className="flex items-center cursor-none justify-center min-h-12 break-words p-4 pr-4 -ml-4 w-full relative break-all text-sm bg-transparent text-rose-700 dark:text-rose-500 border-b-[2px_solid_rgb(57,58,76)] bg-slate-950">
+            <h2 className="relative font-bold">{noTodosMessage}</h2>
           </div>
         )}
       </DragDropContext>

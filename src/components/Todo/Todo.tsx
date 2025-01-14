@@ -32,7 +32,7 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
             data-index={index}
           >
             <div
-              className={`bg-transparent border border-[#cacde8] rounded-full cursor-pointer h-7 w-7 left-6 top-1/2 transform -translate-y-1/2 absolute ${completed ? "bg-gradient-to-r from-[#57ddff] to-[#c058f3]" : ""} z-10`}
+              className={`bg-transparent border border-slate-700 dark:border-sky-200 rounded-full cursor-pointer h-7 w-7 left-2 top-1/2 transform -translate-y-1/2 absolute ${completed ? "border-none bg-gradient-to-r from-[#57ddff] to-[#c058f3]" : ""} z-10`}
               onClick={handleClick}
             >
               {completed && (
@@ -49,7 +49,7 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
                 ></div>
               )}
             </div>
-            <p className={`break-words pl-11 uppercase break-all font-bold ${completed ? "text-blue-500 line-through ease-linear text-sm text-opacity-55" : ""}`}>{todoText}</p>
+            <p className={`break-words pl-8 uppercase break-all font-bold ${completed ? "text-blue-500 line-through ease-linear text-sm text-opacity-55" : ""}`}>{todoText}</p>
 
             <img 
               className="cursor-pointer"
