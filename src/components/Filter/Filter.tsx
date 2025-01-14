@@ -7,7 +7,7 @@ import todoContext from "../../utilites/ContextTodo/TodoContext";
 const Filter : FC<FilterProps> = ({setFilter}) => {
 
   // Gets the relevant properties of the context
-  const { filter, handleFilter } = useContext(todoContext) as ToDoContextProps;
+  const { filter, handleFilter, todos } = useContext(todoContext) as ToDoContextProps;
 
   // const { theme } = useTheme();
 
@@ -17,15 +17,21 @@ const Filter : FC<FilterProps> = ({setFilter}) => {
     setFilter(filterValue)
   };
 
+  const filteredTodos = todos.filter(todo => {
+    if (filter === "Active") return !todo.completed;
+    if (filter === "Completed") return todo.completed;
+    return true; // "All"
+  });
+
   return(
     <div className="
-      relative flex items-center gap-4 h-full 
+      relative flex items-center gap-4 h-full px-1 ml-8 shadow-lg rounded-md dark:shadow-slate-800 dark:shadow-lg
       md:justify-start md:static md:min-h-0 md:w-auto 
-      sm:justify-center sm:fixed sm:top-[200%] sm:left-0 sm:w-full sm:min-h-[2.5rem] sm:rounded-md sm:shadow-md 
-      filter-todo">
+      sm:justify-center sm:fixed sm:top-[200%] sm:left-0 sm:w-full sm:min-h-[2.5rem]  
+      ">
       <p 
         className={`cursor-pointer font-semibold ${
-          filter === "All" ? "text-blue-500" : ""
+          filter === "All" ? "dark:text-sky-500 text-sky-800" : ""
         }`}
         onClick={() => handleClick("All")}
       >
@@ -34,24 +40,24 @@ const Filter : FC<FilterProps> = ({setFilter}) => {
 
       <p 
         className={`cursor-pointer font-semibold ${
-          filter === "Active" ? "text-blue-500" : ""
+          filter === "Active" ? "dark:text-sky-500 text-sky-800" : ""
         }`}
         onClick={() => handleClick("Active")}
       >
-        Avtive
+        Active
       </p>
 
       <p 
         className={`cursor-pointer font-semibold ${
-          filter === "Completed" ? "text-blue-500" : ""
+          filter === "Completed" ? "dark:text-sky-500 text-sky-800" : ""
         }`}
         onClick={() => handleClick("Completed")}
       >
         Completed
       </p>
-      <span className="absolute left-0 top-full text-center w-full text-sm mt-4">
-        Drag and drop to reorder list
-      </span>
+      {filteredTodos.length > 1 && (<span className="absolute -left-5 top-full text-center w-full text-base mt-2 font-semibold text-sky-800 dark:text-sky-500">
+        Drag And Drop To Reorder List
+      </span>)}
     </div>
   )
 }
