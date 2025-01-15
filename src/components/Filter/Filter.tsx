@@ -25,12 +25,12 @@ const Filter : FC<FilterProps> = ({setFilter}) => {
 
   return(
     <div className="
-      relative flex items-center gap-4 h-full px-1 ml-8 shadow-lg rounded-md dark:shadow-slate-800 dark:shadow-lg
+      flex items-center gap-4 h-full px-1 ml-8 shadow-lg rounded-md dark:shadow-slate-800 dark:shadow-lg
       md:justify-start md:static md:min-h-0 md:w-auto 
-      sm:justify-center sm:fixed sm:top-[200%] sm:left-0 sm:w-full sm:min-h-[2.5rem]  
+      sm:justify-center sm:absolute sm:top-[200%] sm:left-0 sm:w-full sm:min-h-[2.5rem] 
       ">
       <p 
-        className={`cursor-pointer font-semibold ${
+        className={`cursor-pointer font-semibold hover:text-sky-300 ${
           filter === "All" ? "dark:text-sky-500 text-sky-800" : ""
         }`}
         onClick={() => handleClick("All")}
@@ -39,7 +39,7 @@ const Filter : FC<FilterProps> = ({setFilter}) => {
       </p>
 
       <p 
-        className={`cursor-pointer font-semibold ${
+        className={`cursor-pointer font-semibold hover:text-sky-300 ${
           filter === "Active" ? "dark:text-sky-500 text-sky-800" : ""
         }`}
         onClick={() => handleClick("Active")}
@@ -48,14 +48,14 @@ const Filter : FC<FilterProps> = ({setFilter}) => {
       </p>
 
       <p 
-        className={`cursor-pointer font-semibold ${
+        className={`cursor-pointer font-semibold hover:text-sky-300 ${
           filter === "Completed" ? "dark:text-sky-500 text-sky-800" : ""
         }`}
         onClick={() => handleClick("Completed")}
       >
         Completed
       </p>
-      {filteredTodos.length > 1 && (<span className="absolute -left-5 top-full text-center w-full text-base mt-2 font-semibold text-sky-800 dark:text-sky-500">
+      {filteredTodos.length > 1 && (<span className="absolute -left-1 top-full text-center w-full text-base mt-2 font-semibold text-sky-800 dark:text-sky-500 ">
         Drag And Drop To Reorder List
       </span>)}
     </div>

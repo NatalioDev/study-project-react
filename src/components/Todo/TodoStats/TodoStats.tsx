@@ -18,7 +18,7 @@ const TodoStats = () => {
   }
 
   return (
-    <div className="flex flex-wrap items-center rounded-b-[0.25rem] rounded-tl-[0rem] rounded-tr-[0rem] justify-between min-w-10 p-4 relative w-full font-semibold">
+    <div className="flex flex-wrap items-center rounded-b-[0.25rem] rounded-tl-[0rem] rounded-tr-[0rem] justify-between min-w-10 p-4 relative w-full font-semibold sm:relative">
       <div className="">
         {countRemainingTodos(todos)}
         {' '}
@@ -28,11 +28,13 @@ const TodoStats = () => {
       <Filter setFilter={handleFilter}/>
       
       {countCompletedTodos(todos) > 0 && (
-        <div 
-          className="cursor-pointer font-semibold"
-          onClick={clearCompleted}
-        >
-          Clear Completed
+        <div className="w-full flex justify-center mt-4">
+          <div 
+            className="cursor-pointer font-semibold rounded-md shadow-sm shadow-red-300 hover:text-red-700 dark:shadow-red-900 dark:shadow-md text-red-500"
+            onClick={clearCompleted}
+          >
+            Clear Completed
+          </div>
         </div>
       )}
     </div>

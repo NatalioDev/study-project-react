@@ -76,8 +76,10 @@ const TodoContainer = () => {
           )}
         </Droppable>
         ):(
-          <div className="flex items-center cursor-none justify-center min-h-12 break-words p-4 pr-4 -ml-4 w-full relative break-all text-sm bg-transparent text-rose-700 dark:text-rose-500 border-b-[2px_solid_rgb(57,58,76)] bg-slate-950">
-            <h2 className="relative font-bold">{noTodosMessage}</h2>
+          <div className="flex items-center cursor-none justify-center min-h-12 break-words p-4 w-full relative break-all text-sm bg-transparent text-rose-700 dark:text-rose-500 border-b-[2px_solid_rgb(57,58,76)] bg-slate-950">
+            <h2 className="relative font-bold">         
+              {noTodosMessage}
+            </h2>
           </div>
         )}
       </DragDropContext>
