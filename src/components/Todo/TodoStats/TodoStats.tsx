@@ -5,7 +5,7 @@ import Filter from "../../Filter/Filter";
 
 const TodoStats = () => {
   // Gets the necessary funtions from the todoContext
-  const {todos, clearCompleted, handleFilter} = useContext(todoContext) as ToDoContextProps;
+  const {todos, clearCompleted, handleFilter, filter} = useContext(todoContext) as ToDoContextProps;
 
   // Function to count the completed ones
   const countCompletedTodos = (todos: TodoType[]): number => {
@@ -27,7 +27,7 @@ const TodoStats = () => {
       
       <Filter setFilter={handleFilter}/>
       
-      {countCompletedTodos(todos) > 0 && (
+      {countCompletedTodos(todos) > 0 && filter !== "Active" && (
         <div className="w-full flex justify-center mt-4">
           <div 
             className="cursor-pointer font-semibold rounded-md shadow-sm shadow-red-300 hover:text-red-700 dark:shadow-red-900 dark:shadow-md text-red-500"
