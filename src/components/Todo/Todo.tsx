@@ -47,7 +47,7 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
                 <div
                   className="absolute inset-[6px] flex justify-center items-center"
                   style={{
-                    backgroundImage: "url('/icon/icon-check.svg')",
+                    backgroundImage: "url('./icon/icon-check.svg')",
                     backgroundPosition: '50%',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
