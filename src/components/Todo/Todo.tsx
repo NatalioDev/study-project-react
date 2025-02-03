@@ -1,11 +1,14 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ToDoContextProps, TodoProps } from "../../utilites/Types/types"
 import todoContext from "../../utilites/ContextTodo/TodoContext"
-import { Draggable, DraggableProvided } from "react-beautiful-dnd";
+import { Draggable, DraggableProvided } from "@hello-pangea/dnd";
+import ModalConfirm from "../Modal/ModalConfirm";
 
 const Todo = ({todoText, completed, index, id}: TodoProps) => {
 
   const {setCompleted, clearTodo} = useContext(todoContext) as ToDoContextProps;
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleClick = () => {
     setCompleted(id);
@@ -13,7 +16,12 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
   }
 
   const handleDeleted = () =>{
+    setIsModalOpen(true); // Abre el modal
+  }
+
+  const confirmDelete = () =>{
     clearTodo(id);
+    setIsModalOpen(false);
   }
 
   return (
@@ -57,6 +65,15 @@ const Todo = ({todoText, completed, index, id}: TodoProps) => {
           </div>
         )}
       </Draggable>
+
+      {/* Modal de Confirmación */}
+      <ModalConfirm 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={confirmDelete}
+      >
+        Are you sure you want to delete this task?
+      </ModalConfirm>
     </>
   )
 }
