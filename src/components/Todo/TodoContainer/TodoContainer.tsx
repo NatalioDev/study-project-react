@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import todoContext from "../../../utilites/ContextTodo/TodoContext"
 import { ToDoContextProps } from "../../../utilites/Types/types"
-import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
 import Todo from "../Todo";
 import TodoStats from "../TodoStats/TodoStats";
 
