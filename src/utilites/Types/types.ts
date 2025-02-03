@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 // Types for a task
 export interface TodoType {
@@ -40,3 +40,11 @@ export interface ToDoContextProps {
     index: number;
     id: string;
   }
+
+  // Types Modal
+  export interface ModalConfirmProps{
+    isOpen: boolean;
+    onClose: () => void;
+    onConfirm: () => void;
+    children: ReactNode;
+}
